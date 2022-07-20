@@ -1,0 +1,148 @@
+
+Q) factorial of a num
+echo "Enter a number"
+
+# Read the number
+read num                     
+
+fact=1                    
+
+for((i=2;i<=num;i++))
+{
+  fact=$((fact * i)) 
+}
+
+echo $fact
+
+Q) combination of 1,2,3
+
+ #!/bin/bash
+$ for i in 1 2 3 
+> do
+> for j in 1 2 3 
+> do
+> for k in 1 2 3 
+> do
+> echo $i $j $k
+> done
+> done
+> done
+
+
+
+
+
+
+Q)sum of digits of a num
+
+read -p "Enter a number: " number
+temp=$number
+total=0
+while [ $temp -ne 0 ]
+do
+    total=$((total + temp%10))
+    temp=$((temp/10))
+done
+echo "Sum of the digits of $number is $total"
+
+Q)prime no in a range)
+
+
+#!/bin/bash
+    read -p "Enter a Range of number (a to b) : " a b
+
+    echo "Prime numbers in the given range are :"
+    for ((i=$a; i<=$b; i++))
+    do
+      max=$(bc <<< "scale=0; sqrt($i)")
+      check=0
+
+      for ((j=2; j<=$max; j++))
+      do
+        if (( $i % $j == 0))
+        then
+            check=1
+            break
+        fi
+      done
+      if [ $check -eq 0 ]
+      then
+          echo -n "$i   "
+      fi
+    done
+
+Q) palindrome string
+
+is_palindrome () { 
+    local word=$1
+    local len=$((${#word} - 1))
+    local i
+    for ((i=0; i <= (len/2); i++)); do
+        [[ ${word:i:1} == ${word:len-i:1} ]] || return 1
+    done
+    return 0
+}
+
+for word in hello kayak; do
+    if is_palindrome $word; then
+        echo $word is a palindrome
+    else
+        echo $word is NOT a palindrome
+    fi
+done
+
+
+
+Q) max of 3 num 
+
+echo "Enter Num1"
+read num1
+echo "Enter Num2"
+read num2
+echo "Enter Num3"
+read num3
+ 
+if [ $num1 -gt $num2 ] && [ $num1 -gt $num3 ]
+then
+    echo $num1
+elif [ $num2 -gt $num1 ] && [ $num2 -gt $num3 ]
+then
+    echo $num2
+else
+    echo $num3
+fi
+
+
+
+
+Q) pyramid pattern
+
+r=5
+for((n=1;n<r;n++))
+do
+   for ((m=1;m<=r-n;m++))
+do
+   echo -n" "
+done
+for ((m=1;m<=2*n-1;m++))
+do
+   echo -n "*"
+done 
+  echo
+done
+
+
+echo "welcome $(whoami) $(date)
+
+Q) check string have 10 chars or not
+
+
+echo -n "Enter a string"
+read string
+L= $(echo $ {string})
+if [ $L  -it 10]; then
+         echo "$ string does not have 10 char"
+else
+          echo "$ string  have 10 char"
+
+fi
